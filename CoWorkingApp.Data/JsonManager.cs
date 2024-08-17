@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 namespace CoWorkingApp.Data;
 
 // clase JsonManager al cual se le pasara un tipo generic T para que acepte cualquier tipo de dato
+// estos datos de las clases se guardaran en un json (User, Desk y Reservation)
 public class JsonManager<T>
 {
     // metodo para obtener la lista de datos
@@ -13,9 +14,6 @@ public class JsonManager<T>
 
         // coleccion temporal de los elementos
         var myCollection = new List<T>();
-
-        // variable donde guardaremos el contenido actual del archivo json
-        var currentContent = string.Empty;
         
         // condicional si el archivo existe lo lea
         if (File.Exists(collectionPath))
@@ -23,8 +21,7 @@ public class JsonManager<T>
             // leemos el archivo json
             var streamReader = new StreamReader(collectionPath);
             // lectura de datos hasta el final
-            currentContent = streamReader.ReadToEnd();
-            
+            var currentContent = streamReader.ReadToEnd();
             // transformacion de el string al tipo de dato generic T
             // instalamos el nuget Newtonsoft.Json para trabajar con json
             // convertimos el contenido del archivo json a la coleccion temporal
@@ -46,8 +43,9 @@ public class JsonManager<T>
         return myCollection;
     }
 
-    public bool SaveCollection(T collection)
+    public bool SaveCollection(List<T> collection)
     {
+        // ruta donde se guardara
         var collectionPath = $"{Directory.GetCurrentDirectory()}//{typeof(T)}.json";
 
         try

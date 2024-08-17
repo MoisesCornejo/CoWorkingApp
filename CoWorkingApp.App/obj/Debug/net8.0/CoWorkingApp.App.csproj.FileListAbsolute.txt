@@ -12,3 +12,10 @@ D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\refint\CoWorking
 D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.pdb
 D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.genruntimeconfig.cache
 D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\ref\CoWorkingApp.App.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.Data.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.Models.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.Models.pdb
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.Data.pdb
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.csproj.AssemblyReference.cache
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkin.C4F260F5.Up2Date
