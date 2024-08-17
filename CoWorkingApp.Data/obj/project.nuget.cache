@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "V8VvggP/dsJm1CGTfnYCuuGSR3IwgVvy8MnOUsw7CanuE6OqrG2OLufAgCIwLcoyyTPURR2jCr97e4mDxubSkg==",
+  "dgSpecHash": "Ztm5TMg1aKSoh2x2bp4ZecCndF8BQXDZdV2m6jWSfgBf+NiLYocrUNgTsOj74g6T8+ttmrjwXf65uJiWTmSxmw==",
   "success": true,
   "projectFilePath": "D:\\RiderProjects\\CoWorkingApp\\CoWorkingApp.Data\\CoWorkingApp.Data.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Moises\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
