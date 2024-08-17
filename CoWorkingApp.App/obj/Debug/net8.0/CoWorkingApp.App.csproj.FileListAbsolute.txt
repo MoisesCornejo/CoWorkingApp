@@ -1,0 +1,14 @@
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.App.exe
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.App.deps.json
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.App.runtimeconfig.json
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.App.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\bin\Debug\net8.0\CoWorkingApp.App.pdb
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.GeneratedMSBuildEditorConfig.editorconfig
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.AssemblyInfoInputs.cache
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.AssemblyInfo.cs
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.csproj.CoreCompileInputs.cache
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\refint\CoWorkingApp.App.dll
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.pdb
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\CoWorkingApp.App.genruntimeconfig.cache
+D:\RiderProjects\CoWorkingApp\CoWorkingApp.App\obj\Debug\net8.0\ref\CoWorkingApp.App.dll
