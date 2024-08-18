@@ -1,4 +1,5 @@
-﻿using CoWorkingApp.Data;
+﻿using CoWorkingApp.App.Enums;
+using CoWorkingApp.Data;
 
 var rolSelected = "";
 
@@ -12,10 +13,11 @@ while (rolSelected != "1" && rolSelected != "2")
     rolSelected = Console.ReadLine();
 }
 
-switch (rolSelected)
+// Al crear un enum debemos parsear el valor string a enum en este caso UserRole
+switch (Enum.Parse<UserRole> (rolSelected))
 {
     // si es administrador
-    case "1":
+    case UserRole.Admin:
     {
         var menuAdminSelected = "";
         while (menuAdminSelected != "1" && menuAdminSelected != "2")
@@ -26,9 +28,9 @@ switch (rolSelected)
             menuAdminSelected = Console.ReadLine();
         }
 
-        switch (menuAdminSelected)
+        switch (Enum.Parse<MenuAdmin>(menuAdminSelected))
         {
-            case "1":
+            case MenuAdmin.AdminPuestos:
             {
                 var menuAdminDesk = "";
                 while (menuAdminDesk != "1" 
@@ -44,18 +46,18 @@ switch (rolSelected)
                     menuAdminDesk = Console.ReadLine();
                 }
                 
-                switch (menuAdminDesk)
+                switch (Enum.Parse<AdminDesk>(menuAdminDesk))
                 {
-                    case "1":
+                    case AdminDesk.CrearPuesto:
                         Console.WriteLine("Crear Puestos");
                         break;
-                    case "2":
+                    case AdminDesk.EditarPuesto:
                         Console.WriteLine("Editar Puestos");
                         break;
-                    case "3":
+                    case AdminDesk.EliminarPuesto:
                         Console.WriteLine("Eliminar Puestos");
                         break;
-                    case "4":
+                    case AdminDesk.BloquearPuesto:
                         Console.WriteLine("Bloquear Puestos");
                         break;
                 }
@@ -63,7 +65,7 @@ switch (rolSelected)
                 break;
             }
             
-            case "2":
+            case MenuAdmin.AdminUsuario:
             {
                 var menuAdminUser = "";
                 while (menuAdminUser != "1" 
@@ -79,18 +81,18 @@ switch (rolSelected)
                     menuAdminUser = Console.ReadLine();
                 }
                 
-                switch (menuAdminUser)
+                switch (Enum.Parse<AdminUser>(menuAdminUser))
                 {
-                    case "1":
+                    case AdminUser.CrearUsuario:
                         Console.WriteLine("Crear Usuario");
                         break;
-                    case "2":
+                    case AdminUser.EditarUsuario:
                         Console.WriteLine("Editar Usuario");
                         break;
-                    case "3":
+                    case AdminUser.EliminarUsuario:
                         Console.WriteLine("Eliminar Usuario");
                         break;
-                    case "4":
+                    case AdminUser.CambiarContraseña:
                         Console.WriteLine("Cambiar Contraseña Usuario");
                         break;
                 }
@@ -100,7 +102,7 @@ switch (rolSelected)
         break;
     }
     // si es usuario
-    case "2":
+    case UserRole.User:
         var menuUserSelected = "";
 
         while (menuUserSelected != "1" 
@@ -116,18 +118,18 @@ switch (rolSelected)
             menuUserSelected = Console.ReadLine();
         }
 
-        switch (menuUserSelected)
+        switch (Enum.Parse<MenuUser>(menuUserSelected))
         {
-            case "1":
+            case MenuUser.ReservarPuesto:
                 Console.WriteLine("Reserva de Puesto");
                 break;
-            case "2":
+            case MenuUser.CancelarReserva:
                 Console.WriteLine("Cancelar reserva");
                 break;
-            case "3":
+            case MenuUser.HistorialReserva:
                 Console.WriteLine("Ver historial de reservas");
                 break;
-            case "4":
+            case MenuUser.CambiarContraseña:
                 Console.WriteLine("Cambiar contraseña");
                 break;
         }
