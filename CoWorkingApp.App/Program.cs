@@ -30,21 +30,21 @@ switch (rolSelected)
         {
             case "1":
             {
-                var menuDeskSelected = "";
-                while (menuDeskSelected != "1" 
-                       && menuDeskSelected != "2" 
-                       && menuDeskSelected != "3" 
-                       && menuDeskSelected != "4")
+                var menuAdminDesk = "";
+                while (menuAdminDesk != "1" 
+                       && menuAdminDesk != "2" 
+                       && menuAdminDesk != "3" 
+                       && menuAdminDesk != "4")
                 {
                     Console.WriteLine("Administración de puestos " +
                                       "\n 1. Crear puesto " +
                                       "\n 2. Editar puesto " +
                                       "\n 3. Eliminar puesto " +
                                       "\n 4. Bloquear puesto");
-                    menuDeskSelected = Console.ReadLine();
+                    menuAdminDesk = Console.ReadLine();
                 }
                 
-                switch (menuDeskSelected)
+                switch (menuAdminDesk)
                 {
                     case "1":
                         Console.WriteLine("Crear Puestos");
@@ -65,21 +65,21 @@ switch (rolSelected)
             
             case "2":
             {
-                var menuUserSelected = "";
-                while (menuUserSelected != "1" 
-                       && menuUserSelected != "2" 
-                       && menuUserSelected != "3" 
-                       && menuUserSelected != "4")
+                var menuAdminUser = "";
+                while (menuAdminUser != "1" 
+                       && menuAdminUser != "2" 
+                       && menuAdminUser != "3" 
+                       && menuAdminUser != "4")
                 {
                     Console.WriteLine("Administración de Usuarios " +
                                       "\n 1. Crear Usuario " +
                                       "\n 2. Editar Usuario " +
                                       "\n 3. Eliminar Usuario " +
                                       "\n 4. Cambiar Contraseña Usuario");
-                    menuUserSelected = Console.ReadLine();
+                    menuAdminUser = Console.ReadLine();
                 }
                 
-                switch (menuUserSelected)
+                switch (menuAdminUser)
                 {
                     case "1":
                         Console.WriteLine("Crear Usuario");
@@ -94,7 +94,6 @@ switch (rolSelected)
                         Console.WriteLine("Cambiar Contraseña Usuario");
                         break;
                 }
-
                 break;
             }
         }
@@ -102,6 +101,36 @@ switch (rolSelected)
     }
     // si es usuario
     case "2":
+        var menuUserSelected = "";
+
+        while (menuUserSelected != "1" 
+               && menuUserSelected != "2" 
+               && menuUserSelected != "3" 
+               && menuUserSelected != "4")
+        {
+            Console.WriteLine("Bienvenido Usuario " +
+                              "\n 1. Reservar puesto " +
+                              "\n 2. Cancelar reserva " +
+                              "\n 3. Ver historial de reserva " +
+                              "\n 4. Cambiar contraseña");
+            menuUserSelected = Console.ReadLine();
+        }
+
+        switch (menuUserSelected)
+        {
+            case "1":
+                Console.WriteLine("Reserva de Puesto");
+                break;
+            case "2":
+                Console.WriteLine("Cancelar reserva");
+                break;
+            case "3":
+                Console.WriteLine("Ver historial de reservas");
+                break;
+            case "4":
+                Console.WriteLine("Cambiar contraseña");
+                break;
+        }
         break;
 }
 
