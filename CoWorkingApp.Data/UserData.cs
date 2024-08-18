@@ -21,8 +21,8 @@ public class UserData
         var userCollection = JsonManager.GetCollection();
 
         // verificamos si el admin existe o no (LINQ)
-                    // utilizamos el metodo Any() para verificar si existe algun elemento que cumpla con la condicion
-                    // en este caso utilizamos la negacion para verificar que no existe ninguna coincidencia
+        // utilizamos el metodo Any() para verificar si existe algun elemento que cumpla con la condicion
+        // // en este caso utilizamos la negacion para verificar que no existe ninguna coincidencia
         if (!userCollection.Any(p => p.Name == "ADMIN" && p.LasName == "ADMIN" && p.Email == "ADMIN")) 
         {
             try
@@ -49,5 +49,19 @@ public class UserData
             return true;
         }
         return true;
+    }
+
+    public bool Login(string? user, string? password, bool isAdmin = false)
+    {
+        // obtenemos la coleccion de usuarios
+        var userCollection = JsonManager.GetCollection();
+        // encriptamos la contraseña
+        var passwordEncrypted = EncryptData.EncryptText(password);
+        // si el usuario es admin, asignamos el valor "ADMIN" a la variable user
+        if (isAdmin) user = "ADMIN";
+        // buscamos el usuario en la coleccion de usuarios
+        var userFound = userCollection.FirstOrDefault(p => p.Email == user && p.Password == passwordEncrypted);
+        // retornamos si el usuario fue encontrado o no
+        return userFound != null;
     }
 }

@@ -1,5 +1,8 @@
 ﻿using CoWorkingApp.App.Enums;
 using CoWorkingApp.Data;
+using CoWorkingApp.Data.Utils;
+
+var userDataService = new UserData();
 
 var rolSelected = "";
 
@@ -7,9 +10,9 @@ var rolSelected = "";
 while (rolSelected != "1" && rolSelected != "2")
 {
     Console.WriteLine("Bienvenido a CoWorkingApp " +
-                      "\n Ingrese su rol: " +
                       "\n 1. Administrador " +
                       "\n 2. Usuario");
+    Console.Write("Ingrese su rol: ");
     rolSelected = Console.ReadLine();
 }
 
@@ -19,10 +22,28 @@ switch (Enum.Parse<UserRole> (rolSelected))
     // si es administrador
     case UserRole.Admin:
     {
+        var loginResult = false;
+
+        while (!loginResult)
+        {
+            Console.WriteLine("Ingrese su usuario: ");
+            var user = Console.ReadLine();
+            
+            Console.WriteLine("Ingrese su contraseña: ");
+            var password = PasswordGet.GetPassword();
+
+            loginResult = userDataService.Login(user, password);
+            
+            if (!loginResult)
+            {
+                Console.WriteLine("\n\n#####\nUsuario o contraseña incorrecta\nintente nuevamente\n#####\n");
+            }
+        }
+        
         var menuAdminSelected = "";
         while (menuAdminSelected != "1" && menuAdminSelected != "2")
         {
-            Console.WriteLine("Bienvenido Administrador " +
+            Console.WriteLine("\nBienvenido Administrador " +
                               "\n 1. Administración de puestos " +
                               "\n 2. Administración de usuarios ");
             menuAdminSelected = Console.ReadLine();
@@ -135,4 +156,3 @@ switch (Enum.Parse<UserRole> (rolSelected))
         }
         break;
 }
-

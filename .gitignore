@@ -1,0 +1,48 @@
+# Ignore build files
+bin/
+obj/
+
+# Ignore Rider project files
+.idea/
+*.sln.iml
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore other unnecessary files
+*.log
+*.tmp
+
+# Ignore .NET Core specific files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore Visual Studio Code workspace settings
+.vscode/
+
+# Ignore Rider workspace settings
+.idea/
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Ignore compiled DLLs
+*.dll
+
+# Ignore compiled PDBs
+*.pdb
+
+# Ignore compiled EXEs
+*.exe
+
+# Ignore coverage files
+coverage/
+*.coverage
+*.coveragexml
+
+# Ignore publish output
+publish/
