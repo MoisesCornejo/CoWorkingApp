@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoWorkingApp.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d047b852ed83df6c250cf12e4c30962344b70e1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+837faa12223ea7367d83a271f02252c5af1857bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoWorkingApp.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoWorkingApp.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
