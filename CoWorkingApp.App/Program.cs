@@ -28,10 +28,10 @@ switch (Enum.Parse<UserRole> (rolSelected))
 
         while (!loginResult)
         {
-            Console.WriteLine("Ingrese su usuario: ");
+            Console.Write("Ingrese su usuario: ");
             var user = Console.ReadLine();
             
-            Console.WriteLine("Ingrese su contraseña: ");
+            Console.Write("Ingrese su contraseña: ");
             var password = EncryptData.GetPassword();
 
             if (user != null) loginResult = userData.Login(user, password);
@@ -48,6 +48,7 @@ switch (Enum.Parse<UserRole> (rolSelected))
             Console.WriteLine("\nBienvenido Administrador " +
                               "\n 1. Administración de puestos " +
                               "\n 2. Administración de usuarios ");
+            Console.Write("Ingrese opcion: ");
             menuAdminSelected = Console.ReadLine();
         }
 

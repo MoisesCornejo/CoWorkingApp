@@ -77,5 +77,35 @@ public class UserData
         _jsonManager.SaveCollection(userCollection);
         return true;
     }
+
+    public User FindByUser(string? email)
+    {
+        var userCollection = _jsonManager.GetCollection();
+        return userCollection.FirstOrDefault(p => p.Email == email) ?? throw new InvalidOperationException();
+    }
+    
+    public bool EditUser(User user)
+    {
+        // encriptamos la contraseña
+        if (user.Password != null) user.Password = EncryptData.EncryptText(user.Password);
+        // obtenemos la coleccion de usuarios
+        var userCollection = _jsonManager.GetCollection();
+        // buscamos el usuario en la coleccion de usuarios
+        var indexUser = userCollection.FindIndex(p => p.UserId == user.UserId);
+        // cambiamos el usuario en la coleccion
+        userCollection[indexUser] = user;
+
+        // guardamos la coleccion de usuarios en el archivo json
+        _jsonManager.SaveCollection(userCollection);
+        return true;
+    }
+    
+    public bool DeleteUser(Guid userId)
+    {
+        var userCollection = _jsonManager.GetCollection();
+        userCollection.Remove(userCollection.Find(p => p.UserId == userId) ?? throw new InvalidOperationException());
+        _jsonManager.SaveCollection(userCollection);
+        return true;
+    }
     
 }
