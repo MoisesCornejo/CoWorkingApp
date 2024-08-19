@@ -1,8 +1,10 @@
 ﻿using CoWorkingApp.App.Enums;
+using CoWorkingApp.App.Service;
 using CoWorkingApp.Data;
 using CoWorkingApp.Data.Utils;
 
-var userDataService = new UserData();
+var userData = new UserData();
+var userService = new UserService(userData);
 
 var rolSelected = "";
 
@@ -30,10 +32,10 @@ switch (Enum.Parse<UserRole> (rolSelected))
             var user = Console.ReadLine();
             
             Console.WriteLine("Ingrese su contraseña: ");
-            var password = PasswordGet.GetPassword();
+            var password = EncryptData.GetPassword();
 
-            loginResult = userDataService.Login(user, password);
-            
+            if (user != null) loginResult = userData.Login(user, password);
+
             if (!loginResult)
             {
                 Console.WriteLine("\n\n#####\nUsuario o contraseña incorrecta\nintente nuevamente\n#####\n");
@@ -101,22 +103,11 @@ switch (Enum.Parse<UserRole> (rolSelected))
                                       "\n 4. Cambiar Contraseña Usuario");
                     menuAdminUser = Console.ReadLine();
                 }
-                
-                switch (Enum.Parse<AdminUser>(menuAdminUser))
-                {
-                    case AdminUser.CrearUsuario:
-                        Console.WriteLine("Crear Usuario");
-                        break;
-                    case AdminUser.EditarUsuario:
-                        Console.WriteLine("Editar Usuario");
-                        break;
-                    case AdminUser.EliminarUsuario:
-                        Console.WriteLine("Eliminar Usuario");
-                        break;
-                    case AdminUser.CambiarContraseña:
-                        Console.WriteLine("Cambiar Contraseña Usuario");
-                        break;
-                }
+
+                // parseamos el valor string a enum AdminUser
+                var menuAdminUserSelected = Enum.Parse<AdminUser>(menuAdminUser);
+                // ejecutamos el metodo ExecuteAction de la clase UserService
+                userService.ExecuteAction(menuAdminUserSelected);
                 break;
             }
         }

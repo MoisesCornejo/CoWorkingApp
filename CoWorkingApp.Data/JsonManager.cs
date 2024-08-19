@@ -32,7 +32,7 @@ public class JsonManager<T>
         else
         {
             // convertimos la coleccion temporal en json
-            var jsonCollection = JsonConvert.SerializeObject(myCollection);
+            var jsonCollection = JsonConvert.SerializeObject(myCollection, Formatting.Indented);
             // si no existe el archivo json lo creamos para utilizarlo
             var streamWriter = new StreamWriter(collectionPath);
             // escribimos el contenido en el archivo json
@@ -50,7 +50,7 @@ public class JsonManager<T>
 
         try
         {
-            var jsonCollection = JsonConvert.SerializeObject(collection);
+            var jsonCollection = JsonConvert.SerializeObject(collection, Formatting.Indented);
             var streamWriter = new StreamWriter(collectionPath);
             streamWriter.WriteLine(jsonCollection);
             streamWriter.Close();

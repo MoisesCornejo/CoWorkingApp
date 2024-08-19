@@ -1,29 +1,28 @@
 using CoWorkingApp.Data.Utils;
 using CoWorkingApp.Models;
-using Newtonsoft.Json;
 
 namespace CoWorkingApp.Data;
 
 public class UserData
 {
     // Creamos variable de tipo JsonManager para poder utilizar los metodos de la clase JsonManager
-    private JsonManager<User> JsonManager;
+    private JsonManager<User> _jsonManager;
 
     // Constructor de la clase UserData
     public UserData()
     {
         // Initializamos la variable JsonManager de tipo User
-        JsonManager = new JsonManager<User>();
+        _jsonManager = new JsonManager<User>();
     }
 
     public bool CreateAdmin()
     {
-        var userCollection = JsonManager.GetCollection();
+        var userCollection = _jsonManager.GetCollection();
 
         // verificamos si el admin existe o no (LINQ)
         // utilizamos el metodo Any() para verificar si existe algun elemento que cumpla con la condicion
         // // en este caso utilizamos la negacion para verificar que no existe ninguna coincidencia
-        if (!userCollection.Any(p => p.Name == "ADMIN" && p.LasName == "ADMIN" && p.Email == "ADMIN")) 
+        if (!userCollection.Any(p => p is { Name: "ADMIN", LasName: "ADMIN", Email: "ADMIN" })) 
         {
             try
             {
@@ -39,7 +38,7 @@ public class UserData
                 // agregamos el adminUser a la coleccion de usuarios
                 userCollection.Add(adminUser);
                 // guardamos la coleccion de usuarios en el archivo json
-                JsonManager.SaveCollection(userCollection);
+                _jsonManager.SaveCollection(userCollection);
             }
             catch (Exception)
             {
@@ -51,10 +50,10 @@ public class UserData
         return true;
     }
 
-    public bool Login(string? user, string? password, bool isAdmin = false)
+    public bool Login(string user, string password, bool isAdmin = false)
     {
         // obtenemos la coleccion de usuarios
-        var userCollection = JsonManager.GetCollection();
+        var userCollection = _jsonManager.GetCollection();
         // encriptamos la contraseña
         var passwordEncrypted = EncryptData.EncryptText(password);
         // si el usuario es admin, asignamos el valor "ADMIN" a la variable user
@@ -64,4 +63,19 @@ public class UserData
         // retornamos si el usuario fue encontrado o no
         return userFound != null;
     }
+    
+    public bool CreateUser(User user)
+    {
+        // encriptamos la contraseña
+        if (user.Password != null) user.Password = EncryptData.EncryptText(user.Password);
+        // obtenemos la coleccion de usuarios
+        var userCollection = _jsonManager.GetCollection();
+        // agregamos el usuario a la coleccion
+        userCollection.Add(user);
+
+        // guardamos la coleccion de usuarios en el archivo json
+        _jsonManager.SaveCollection(userCollection);
+        return true;
+    }
+    
 }
